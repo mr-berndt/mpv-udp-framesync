@@ -390,7 +390,7 @@ if opts.role == "slave" then
     end
 
     -- Key bindings for fine-tuning offset
-    mp.add_key_binding("Ö", "sync-offset-increase", function()
+    mp.add_key_binding("[", "sync-offset-increase", function()
         slave_offset = slave_offset + 0.005  -- +5ms
         local msg = string.format("Slave offset: %+dms", math.floor(slave_offset * 1000 + 0.5))
         mp.msg.info(msg)
@@ -399,7 +399,7 @@ if opts.role == "slave" then
         end
     end)
 
-    mp.add_key_binding("Ä", "sync-offset-decrease", function()
+    mp.add_key_binding("]", "sync-offset-decrease", function()
         slave_offset = slave_offset - 0.005  -- -5ms
         local msg = string.format("Slave offset: %+dms", math.floor(slave_offset * 1000 + 0.5))
         mp.msg.info(msg)

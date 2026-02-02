@@ -111,8 +111,8 @@ show_osd=yes
 
 ## Key Bindings (Slave only)
 
-- **Shift+;**: Offset +5ms (slave runs later)
-- **Shift+'**: Offset -5ms (slave runs earlier)
+- **[**: Offset +5ms (slave runs later)
+- **]**: Offset -5ms (slave runs earlier)
 
 Useful for audio/video lip sync or when different hardware has different latency.
 
@@ -222,16 +222,6 @@ mpv --script-opts=sync-role=master --fs video.mp4
 
 # Projector 2 (Slave with 25ms offset for hardware latency):
 mpv --script-opts=sync-role=slave,sync-initial_offset=0.025 --fs video.mp4
-```
-
-### Setup 3: Stereo Audio with Two Speakers
-
-```bash
-# Left (Master):
-mpv --script-opts=sync-role=master --audio-channels=stereo --lavfi-complex='[aid1]pan=stereo|c0=c0|c1=c0[ao]' video.mp4
-
-# Right (Slave):
-mpv --script-opts=sync-role=slave --audio-channels=stereo --lavfi-complex='[aid1]pan=stereo|c0=c1|c1=c1[ao]' video.mp4
 ```
 
 ## Performance
